@@ -1,18 +1,19 @@
-#include <unistd.h>
+#include <stdio.h>
 #include <string.h>
 
-int main() {
+int main()
+{
     // Preparing the messages
-    const char* out = "Hello, ENSF461!\n";
-    const ssize_t out_l = strlen(out);
-    const char* err = "Error, ENSF461!\n";
-    const ssize_t err_l = strlen(err);
+    const char *out = "Hello, ENSF461!\n";
+    const size_t out_l = strlen(out);
+    const char *err = "Error, ENSF461!\n";
+    const size_t err_l = strlen(err);
 
     // Let's write to the standard output
-    write(1, out, out_l);
+    fwrite(out, 1, out_l, stdout);
 
     // Let's write to the standard error
-    write(2, err, err_l);
-    
+    fwrite(err, 1, err_l, stderr);
+
     return 0;
 }
